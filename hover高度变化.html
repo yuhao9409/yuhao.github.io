@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>hover高度变化</title>
+    <style>
+      /**transition 不支持 height: auto**/
+      div {
+        word-break: break-all;
+      }
+      /*hover class 时变化box高度*/
+      .box {
+        width: 100px;
+        height: 0;
+        background: #ccc;
+        transition: height 1s ease;
+        overflow: hidden;
+      }
+      .hover:hover ~ .box {
+        height: 100px;
+      }
+      .hover,
+      .hover1,
+      .hover2 {
+        width: 100px;
+        line-height: 35px;
+        height: 35px;
+        cursor: pointer;
+        margin-top: 10px;
+        background: red;
+      }
+      .box1 {
+        width: 100px;
+        max-height: 0;
+        background: #ccc;
+        transition: max-height 1s ease;
+        overflow: hidden;
+        will-change: max-height;
+        overflow: hidden;
+      }
+      .hover1:hover ~ .box1 {
+        max-height: 300px;
+      }
+      .box2 {
+        width: 100px;
+        background: rgb(142, 112, 112);
+        transform: rotateX(-90deg);
+        transform-origin: center top;
+        transition: transform 0.3s ease;
+        will-change: max-height;
+      }
+      .hover2:hover ~ .box2 {
+        transform: rotateX(0deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hover">hover我</div>
+    <div class="box">123</div>
+    <div class="hover1">hover我</div>
+    <div class="box1">
+      asf asdas
+      dsadasweqwedasdasdsqawqweqwedasdasdsqawqweqwedasdasdsqawqweqwedasdasdsqawqweqwedasdasdsqawqdqweqwedasdasdsqawqeqweadasdad
+    </div>
+    <div class="hover2">hover我</div>
+    <div class="box2">
+      asf asdas
+      dsadasweqwedasdasdsqawqweqwedasdasdsqawqweqwedasdasdsqawqweqwedasdasdsqawqweqwedasdasdsqawqdqweqwedasdasdsqawqeqweadasdad
+    </div>
+  </body>
+</html>
